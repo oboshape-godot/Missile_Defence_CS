@@ -1,10 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dj2hm7ed3x3ux"]
+[gd_scene load_steps=8 format=3 uid="uid://dj2hm7ed3x3ux"]
 
 [ext_resource type="Texture2D" uid="uid://ckuxfpybalhcs" path="res://assets/tileMapStars.png" id="1_x5k4w"]
 [ext_resource type="Texture2D" uid="uid://dixkpkxxyg0rt" path="res://assets/tileMapGround.png" id="2_7fo0b"]
-[ext_resource type="PackedScene" uid="uid://beifjo0ho8avd" path="res://cannon.tscn" id="3_w6hxm"]
-[ext_resource type="PackedScene" uid="uid://iwp8ugyl2w2a" path="res://explosion.tscn" id="4_kjpdh"]
-[ext_resource type="PackedScene" uid="uid://d1f68217nwd25" path="res://bullet.tscn" id="5_k33ok"]
+[ext_resource type="PackedScene" uid="uid://beifjo0ho8avd" path="res://scenes/cannon.tscn" id="3_4wkab"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ke8r2"]
 texture = ExtResource("1_x5k4w")
@@ -24,22 +22,25 @@ texture_region_size = Vector2i(1024, 400)
 tile_size = Vector2i(1024, 400)
 sources/0 = SubResource("TileSetAtlasSource_38ec6")
 
-[node name="Game" type="Node2D"]
+[node name="game" type="Node2D"]
 
-[node name="tileMapStars" type="TileMap" parent="."]
+[node name="background" type="Node" parent="."]
+
+[node name="tileMapStars" type="TileMap" parent="background"]
 tile_set = SubResource("TileSet_sr6cg")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65531, 0, 0, 5, 0, 0, 65541, 0, 0, 131077, 0, 0, 196613, 0, 0, 196612, 0, 0, 196611, 0, 0, 196610, 0, 0, 196609, 0, 0, 196608, 0, 0, 262143, 0, 0, 262142, 0, 0, 196606, 0, 0, 131070, 0, 0, 65534, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 131075, 0, 0, 131074, 0, 0, 131073, 0, 0, 131072, 0, 0, 196607, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 3, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 65535, 0, 0)
 
-[node name="tileMapGround" type="TileMap" parent="."]
+[node name="tileMapGround" type="TileMap" parent="background"]
 tile_set = SubResource("TileSet_v841w")
 format = 2
 layer_0/tile_data = PackedInt32Array(131071, 0, 0, 65536, 0, 0, 65537, 0, 0)
 
-[node name="cannon" parent="." instance=ExtResource("3_w6hxm")]
-position = Vector2(579, 501)
+[node name="bullets" type="Node" parent="."]
 
-[node name="explosion" parent="." instance=ExtResource("4_kjpdh")]
+[node name="foreground" type="Node" parent="."]
 
-[node name="bullet" parent="." instance=ExtResource("5_k33ok")]
-rotation = 1.5708
+[node name="cannon" parent="foreground" instance=ExtResource("3_4wkab")]
+position = Vector2(598, 449)
+
+[node name="hud" type="Node" parent="."]

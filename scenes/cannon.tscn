@@ -2,9 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://b1m1l8vmt40bh" path="res://assets/cannon.png" id="1_k7he5"]
 [ext_resource type="Texture2D" uid="uid://dm6srt5hxx8hh" path="res://assets/cannonBarrel.png" id="2_qi2cl"]
-[ext_resource type="Script" path="res://cannonBarrel.cs" id="3_vn72v"]
+[ext_resource type="Script" path="res://scripts/cannonBarrel.cs" id="3_vn72v"]
 
 [node name="cannon" type="Sprite2D"]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_k7he5")
 
 [node name="cannonBarrel" type="Sprite2D" parent="."]
