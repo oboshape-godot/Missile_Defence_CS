@@ -15,6 +15,7 @@ public partial class cannonBarrel : Sprite2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		LookAt(GetGlobalMousePosition());
 	}
 
     public override void _Input(InputEvent _inputEvent)
