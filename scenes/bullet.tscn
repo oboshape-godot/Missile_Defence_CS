@@ -24,12 +24,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x586h"]
-size = Vector2(144, 60)
+size = Vector2(72, 30)
 
 [node name="bullet" type="Area2D"]
 script = ExtResource("1_04q47")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_billd")
 animation = &"enemy"
 

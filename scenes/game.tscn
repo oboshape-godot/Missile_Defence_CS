@@ -42,9 +42,15 @@ layer_0/tile_data = PackedInt32Array(131071, 0, 0, 65536, 0, 0, 65537, 0, 0)
 [node name="bulletBrain" type="Node" parent="bullets"]
 script = ExtResource("3_jtwii")
 
+[node name="enemySpawner" type="Timer" parent="bullets/bulletBrain"]
+wait_time = 3.0
+autostart = true
+
 [node name="foreground" type="Node" parent="."]
 
 [node name="cannon" parent="foreground" instance=ExtResource("3_4wkab")]
 position = Vector2(598, 449)
 
 [node name="hud" type="Node" parent="."]
+
+[connection signal="timeout" from="bullets/bulletBrain/enemySpawner" to="bullets/bulletBrain" method="_on_enemy_spawner_timeout"]

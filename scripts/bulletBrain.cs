@@ -5,6 +5,20 @@ public partial class bulletBrain : Node
 {
 	scenes scenes = new scenes();
 	
+
+	public void _on_enemy_spawner_timeout()
+	{
+		spawnEnemy();
+	}
+
+	public void spawnEnemy()
+	{
+		Vector2 spawnPosition = new Vector2(Convert.ToSingle(GD.RandRange(0,1000)), -30.0f);
+		Vector2 targetPosition = new Vector2(Convert.ToSingle(GD.RandRange(0,1000)), 550.0f);
+
+		spawnBullet(spawnPosition,targetPosition,"enemy");
+	}
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
