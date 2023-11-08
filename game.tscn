@@ -42,3 +42,4 @@ position = Vector2(579, 501)
 [node name="explosion" parent="." instance=ExtResource("4_kjpdh")]
 
 [node name="bullet" parent="." instance=ExtResource("5_k33ok")]
+rotation = 1.5708
