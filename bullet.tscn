@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1f68217nwd25"]
+
+[ext_resource type="Texture2D" uid="uid://dfutytbchv3m4" path="res://assets/bulletEnemy.png" id="1_3jaxa"]
+[ext_resource type="Texture2D" uid="uid://ce8hfd4rmu4wn" path="res://assets/bulletPlayer.png" id="2_asdse"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_billd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3jaxa")
+}],
+"loop": true,
+"name": &"enemy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_asdse")
+}],
+"loop": true,
+"name": &"player",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x586h"]
+size = Vector2(144, 60)
+
+[node name="bullet" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_billd")
+animation = &"enemy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x586h")

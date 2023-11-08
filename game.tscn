@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dj2hm7ed3x3ux"]
+[gd_scene load_steps=10 format=3 uid="uid://dj2hm7ed3x3ux"]
 
 [ext_resource type="Texture2D" uid="uid://ckuxfpybalhcs" path="res://assets/tileMapStars.png" id="1_x5k4w"]
 [ext_resource type="Texture2D" uid="uid://dixkpkxxyg0rt" path="res://assets/tileMapGround.png" id="2_7fo0b"]
+[ext_resource type="PackedScene" uid="uid://beifjo0ho8avd" path="res://cannon.tscn" id="3_w6hxm"]
+[ext_resource type="PackedScene" uid="uid://iwp8ugyl2w2a" path="res://explosion.tscn" id="4_kjpdh"]
+[ext_resource type="PackedScene" uid="uid://d1f68217nwd25" path="res://bullet.tscn" id="5_k33ok"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ke8r2"]
 texture = ExtResource("1_x5k4w")
@@ -32,3 +35,10 @@ layer_0/tile_data = PackedInt32Array(-65531, 0, 0, 5, 0, 0, 65541, 0, 0, 131077,
 tile_set = SubResource("TileSet_v841w")
 format = 2
 layer_0/tile_data = PackedInt32Array(131071, 0, 0, 65536, 0, 0, 65537, 0, 0)
+
+[node name="cannon" parent="." instance=ExtResource("3_w6hxm")]
+position = Vector2(579, 501)
+
+[node name="explosion" parent="." instance=ExtResource("4_kjpdh")]
+
+[node name="bullet" parent="." instance=ExtResource("5_k33ok")]
