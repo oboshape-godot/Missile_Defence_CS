@@ -3,9 +3,13 @@ using System;
 
 public partial class cannonBarrel : Sprite2D
 {
+
+	bulletBrain bulletBrain;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		bulletBrain = (bulletBrain)GetNode("/root/game/bullets/bulletBrain");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,7 +21,7 @@ public partial class cannonBarrel : Sprite2D
     {
 		if(_inputEvent.IsActionPressed("click"))
         {
-			GD.Print("left mouse pressed!");
+			bulletBrain.spawnBullet(GlobalPosition, GetGlobalMousePosition(), "player");
     	}
 	}
 }

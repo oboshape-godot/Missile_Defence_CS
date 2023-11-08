@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d1f68217nwd25"]
 
 [ext_resource type="Texture2D" uid="uid://dfutytbchv3m4" path="res://assets/bulletEnemy.png" id="1_3jaxa"]
-[ext_resource type="Script" path="res://bullet.cs" id="1_04q47"]
+[ext_resource type="Script" path="res://scripts/bullet.cs" id="1_04q47"]
 [ext_resource type="Texture2D" uid="uid://ce8hfd4rmu4wn" path="res://assets/bulletPlayer.png" id="2_asdse"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_billd"]
