@@ -1,8 +1,10 @@
 using Godot;
 using System;
+using System.Collections;
 
-public partial class bulletStopper : Area2D
+public partial class explosion : Area2D
 {
+
 	bulletBrain bulletBrain;
 
 	// Called when the node enters the scene tree for the first time.
@@ -11,18 +13,23 @@ public partial class bulletStopper : Area2D
 		bulletBrain = (bulletBrain)GetNode("/root/game/bullets/bulletBrain");
 	}
 
-	public void _on_bulletStopper_area_entered(Area2D bullet)
+
+	public void _on_explosion_area_entered(Area2D bullet)
 	{
 		var bulletType = (AnimatedSprite2D)bullet.GetNodeOrNull("AnimatedSprite2D");
-		if ((bulletType != null) && (bulletType.Animation == "player") && (bullet is bullet))
+		var explosionType = (AnimatedSprite2D)GetNode("AnimatedSprite2D");
+		if ((bulletType != null) && (bulletType.Animation == "enemy") && (bullet is bullet))
 		{
-			bulletBrain.spawnExplosion(GlobalPosition, "player");
-
+			bulletBrain.spawnExplosion(bullet.GlobalPosition, "enemy");
 			bullet.QueueFree();
-			QueueFree(); // destroys bulletstopper
 		}
-		
 	}
+
+	public void _on_animated_sprite_2d_animation_finished() // only works when anim not looping
+	{
+		QueueFree();
+	}
+
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)

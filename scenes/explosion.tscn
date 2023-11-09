@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://iwp8ugyl2w2a"]
+[gd_scene load_steps=16 format=3 uid="uid://iwp8ugyl2w2a"]
 
 [ext_resource type="Texture2D" uid="uid://c3fqo1rofhw2a" path="res://assets/explosionEnemy0.png" id="1_1drul"]
+[ext_resource type="Script" path="res://scripts/explosion.cs" id="1_cgvtm"]
 [ext_resource type="Texture2D" uid="uid://cxdkgcqe50bl" path="res://assets/explosionEnemy1.png" id="2_tvqh2"]
 [ext_resource type="Texture2D" uid="uid://dgbp4yf7fo0ha" path="res://assets/explosionEnemy2.png" id="3_dk5vu"]
 [ext_resource type="Texture2D" uid="uid://b3pw256ums6nb" path="res://assets/explosionEnemy3.png" id="4_gek7p"]
@@ -34,7 +35,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_i3jp7")
 }],
-"loop": true,
+"loop": false,
 "name": &"enemy",
 "speed": 5.0
 }, {
@@ -57,7 +58,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("12_3cht8")
 }],
-"loop": true,
+"loop": false,
 "name": &"player",
 "speed": 5.0
 }]
@@ -66,10 +67,14 @@ animations = [{
 radius = 42.0119
 
 [node name="explosion" type="Area2D"]
+script = ExtResource("1_cgvtm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fh6gi")
-animation = &"player"
+animation = &"enemy"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_51mcf")
+
+[connection signal="area_entered" from="." to="." method="_on_explosion_area_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
