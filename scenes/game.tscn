@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dj2hm7ed3x3ux"]
+[gd_scene load_steps=11 format=3 uid="uid://dj2hm7ed3x3ux"]
 
 [ext_resource type="Texture2D" uid="uid://ckuxfpybalhcs" path="res://assets/tileMapStars.png" id="1_x5k4w"]
 [ext_resource type="Texture2D" uid="uid://dixkpkxxyg0rt" path="res://assets/tileMapGround.png" id="2_7fo0b"]
 [ext_resource type="PackedScene" uid="uid://beifjo0ho8avd" path="res://scenes/cannon.tscn" id="3_4wkab"]
 [ext_resource type="Script" path="res://scripts/bulletBrain.cs" id="3_jtwii"]
+[ext_resource type="Script" path="res://scripts/player.cs" id="5_rf6ny"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ke8r2"]
 texture = ExtResource("1_x5k4w")
@@ -22,6 +23,9 @@ texture_region_size = Vector2i(1024, 400)
 [sub_resource type="TileSet" id="TileSet_v841w"]
 tile_size = Vector2i(1024, 400)
 sources/0 = SubResource("TileSetAtlasSource_38ec6")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p53en"]
+size = Vector2(1152, 144)
 
 [node name="game" type="Node2D"]
 
@@ -53,4 +57,14 @@ position = Vector2(598, 449)
 
 [node name="hud" type="Node" parent="."]
 
+[node name="player" type="Node" parent="."]
+script = ExtResource("5_rf6ny")
+
+[node name="playerHitZone" type="Area2D" parent="player"]
+position = Vector2(576, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/playerHitZone"]
+shape = SubResource("RectangleShape2D_p53en")
+
 [connection signal="timeout" from="bullets/bulletBrain/enemySpawner" to="bullets/bulletBrain" method="_on_enemy_spawner_timeout"]
+[connection signal="area_entered" from="player/playerHitZone" to="player" method="_on_playerHitZone_area_entered"]
