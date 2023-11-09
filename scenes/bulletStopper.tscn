@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://x542yba8a3c3"]
+
+[ext_resource type="Texture2D" uid="uid://wu2cfsdcth7e" path="res://assets/bulletStopper.png" id="1_f2wap"]
+[ext_resource type="Script" path="res://scripts/bulletStopper.cs" id="1_wswkf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q37qt"]
+radius = 33.0
+
+[node name="bulletStopper" type="Area2D"]
+script = ExtResource("1_wswkf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_f2wap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q37qt")
+
+[connection signal="area_entered" from="." to="." method="_on_bulletStopper_area_entered"]
