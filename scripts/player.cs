@@ -59,6 +59,7 @@ public partial class player : Node
 	{
 		score += scoreAmount;
 		updateUI();
+		bulletBrain.increaseDifficulty();
 	}
 
 

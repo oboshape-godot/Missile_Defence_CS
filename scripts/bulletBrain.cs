@@ -4,7 +4,29 @@ using System;
 public partial class bulletBrain : Node
 {
 	scenes scenes = new scenes();
+	Timer enemySpawner;
+	public float maxSpawnInterval = 4.0f;
+	public float minSpawnInterval = 0.5f;
+	public float spawnIntervalDecrease = 0.2f;
+	public float spawnInterval = 0.0f;
 	
+
+	// Called when the node enters the scene tree for the first time.;
+	public override void _Ready()
+	{
+		enemySpawner = (Timer)GetNode("enemySpawner");
+		spawnInterval = maxSpawnInterval;
+		enemySpawner.WaitTime = spawnInterval;
+	}
+
+	public void increaseDifficulty()
+	{
+		var newSpawnInterval = spawnInterval - spawnIntervalDecrease;
+		newSpawnInterval = Math.Max(newSpawnInterval,minSpawnInterval);
+		enemySpawner.WaitTime = newSpawnInterval;
+		enemySpawner.Start();
+		spawnInterval = newSpawnInterval;
+	}
 
 	public void _on_enemy_spawner_timeout()
 	{
@@ -19,10 +41,7 @@ public partial class bulletBrain : Node
 		spawnBullet(spawnPosition,targetPosition,"enemy");
 	}
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
+
 
 	public void spawnBullet(Vector2 spawnPosition, Vector2 targetPosition, string animationName)
 	{
