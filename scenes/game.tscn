@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dj2hm7ed3x3ux"]
+[gd_scene load_steps=15 format=3 uid="uid://dj2hm7ed3x3ux"]
 
 [ext_resource type="Texture2D" uid="uid://ckuxfpybalhcs" path="res://assets/tileMapStars.png" id="1_x5k4w"]
 [ext_resource type="Texture2D" uid="uid://dixkpkxxyg0rt" path="res://assets/tileMapGround.png" id="2_7fo0b"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/bulletBrain.cs" id="3_jtwii"]
 [ext_resource type="FontFile" uid="uid://csebfj3npcb8b" path="res://assets/kenvector_future.ttf" id="5_pxee4"]
 [ext_resource type="Script" path="res://scripts/player.cs" id="5_rf6ny"]
+[ext_resource type="Texture2D" path="res://assets/gameOverOverlay.png" id="6_q8rb0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ke8r2"]
 texture = ExtResource("1_x5k4w")
@@ -28,6 +29,10 @@ sources/0 = SubResource("TileSetAtlasSource_38ec6")
 [sub_resource type="LabelSettings" id="LabelSettings_jvago"]
 font = ExtResource("5_pxee4")
 font_size = 44
+
+[sub_resource type="LabelSettings" id="LabelSettings_7hwtc"]
+font = ExtResource("5_pxee4")
+font_size = 90
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p53en"]
 size = Vector2(1152, 144)
@@ -67,6 +72,23 @@ offset_right = 1151.0
 offset_bottom = 135.0
 text = "Hello World!"
 label_settings = SubResource("LabelSettings_jvago")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="gameOverScreen" type="Node2D" parent="hud"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="hud/gameOverScreen"]
+position = Vector2(574.25, 326.75)
+scale = Vector2(10.188, 6.228)
+texture = ExtResource("6_q8rb0")
+
+[node name="Label" type="Label" parent="hud/gameOverScreen"]
+offset_top = 153.0
+offset_right = 1156.0
+offset_bottom = 298.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_7hwtc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
