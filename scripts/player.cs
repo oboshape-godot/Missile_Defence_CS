@@ -7,7 +7,7 @@ public partial class player : Node
 
 	public bool canShoot = true;
 	public bool gameOver = false;
-	public int health = 3;
+	[Export] public int health = 3;
 	public int score = 0;
 
 	// Called when the node enters the scene tree for the first time.

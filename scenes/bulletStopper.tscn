@@ -4,13 +4,13 @@
 [ext_resource type="Script" path="res://scripts/bulletStopper.cs" id="1_wswkf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q37qt"]
-radius = 33.0
+radius = 19.0263
 
 [node name="bulletStopper" type="Area2D"]
 script = ExtResource("1_wswkf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_f2wap")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

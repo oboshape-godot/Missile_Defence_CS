@@ -55,6 +55,8 @@ layer_0/tile_data = PackedInt32Array(131071, 0, 0, 65536, 0, 0, 65537, 0, 0)
 
 [node name="bulletBrain" type="Node" parent="bullets"]
 script = ExtResource("3_jtwii")
+playerBulletSpeed = 500
+enemyBulletSpeed = 350
 
 [node name="enemySpawner" type="Timer" parent="bullets/bulletBrain"]
 wait_time = 3.0
@@ -94,6 +96,7 @@ vertical_alignment = 1
 
 [node name="player" type="Node" parent="."]
 script = ExtResource("5_rf6ny")
+health = 5
 
 [node name="playerHitZone" type="Area2D" parent="player"]
 position = Vector2(576, 540)
