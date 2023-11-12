@@ -22,7 +22,9 @@ public partial class explosion : Area2D
 		var explosionType = (AnimatedSprite2D)GetNode("AnimatedSprite2D");
 		if ((bulletType != null) && (bulletType.Animation == "enemy") && (bullet is bullet))
 		{
-			bulletBrain.spawnExplosion(bullet.GlobalPosition, "enemy");
+			//bulletBrain.spawnExplosion(bullet.GlobalPosition, "enemy");
+			bulletBrain.CallDeferred("spawnExplosion", bullet.GlobalPosition, "enemy");
+			
 			bullet.QueueFree();
 			player.addScore();
 		}

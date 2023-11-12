@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scripts/bulletBrain.cs" id="3_jtwii"]
 [ext_resource type="FontFile" uid="uid://csebfj3npcb8b" path="res://assets/kenvector_future.ttf" id="5_pxee4"]
 [ext_resource type="Script" path="res://scripts/player.cs" id="5_rf6ny"]
-[ext_resource type="Texture2D" path="res://assets/gameOverOverlay.png" id="6_q8rb0"]
+[ext_resource type="Texture2D" uid="uid://osa7asdwtpg3" path="res://assets/gameOverOverlay.png" id="6_q8rb0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ke8r2"]
 texture = ExtResource("1_x5k4w")

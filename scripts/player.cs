@@ -30,7 +30,8 @@ public partial class player : Node
 		var bulletType = (AnimatedSprite2D)bullet.GetNodeOrNull("AnimatedSprite2D");
 		if ((bulletType != null) && (bulletType.Animation == "enemy") && (bullet is bullet))
 		{
-			bulletBrain.spawnExplosion(bullet.GlobalPosition, "enemy");
+			//bulletBrain.spawnExplosion(bullet.GlobalPosition, "enemy");
+			bulletBrain.CallDeferred("spawnExplosion", bullet.GlobalPosition, "enemy");
 			bullet.QueueFree();
 			hitPlayer();
 		}
@@ -50,7 +51,8 @@ public partial class player : Node
 			gameOverScreen.Visible = true;
 
 			var cannon = (Node2D)GetNode("/root/game/foreground/cannon");
-			bulletBrain.spawnExplosion(cannon.GlobalPosition,"enemy");
+			//bulletBrain.spawnExplosion(cannon.GlobalPosition,"enemy");
+			bulletBrain.CallDeferred("spawnExplosion", cannon.GlobalPosition,"enemy");
 			cannon.QueueFree();
 		}
 	}
