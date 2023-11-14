@@ -36,6 +36,13 @@ public partial class bulletBrain : Node
 		spawnEnemy();
 	}
 
+
+	public void _on_cloud_spawner_timeout()
+	{
+		spawnCloud();
+	}
+
+
 	public void spawnEnemy()
 	{
 		Vector2 spawnPosition = new Vector2(Convert.ToSingle(GD.RandRange(0,1000)), -30.0f);
@@ -78,4 +85,20 @@ public partial class bulletBrain : Node
 		var explosionSprite = (AnimatedSprite2D)explosion.GetNode("AnimatedSprite2D");
 		explosionSprite.Play(animationName);
 	}
+
+
+	public void spawnCloud()
+	{
+
+		var cloud = (AnimatedSprite2D)scenes._sceneCloud.Instantiate();
+		GetNode("/root/game/foreground").AddChild(cloud);
+
+		cloud.Frame = GD.RandRange(0,3);
+
+		Vector2 spawnPosition = new Vector2(-100f, Convert.ToSingle(GD.RandRange(0,400)));
+		cloud.GlobalPosition = spawnPosition;
+		var randomScale = Convert.ToSingle(GD.RandRange(0,1));
+		cloud.Scale = new Vector2(randomScale, randomScale);
+	}
+
 }
